@@ -50,10 +50,10 @@ function App() {
       return () => clearInterval(timer);
     } else {
       setCanClick(false);
-
       if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
+        setCurrentQuestion((prevQuestion) => prevQuestion + 1);
         setCanClick(true);
+        setTimeLeft(30);
       }
     }
   }, [timeLeft, currentQuestion, questions.length]);
